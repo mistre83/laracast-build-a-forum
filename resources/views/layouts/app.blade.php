@@ -13,6 +13,13 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+    <!-- Scripts -->
+    <script>
+        window.Laravel = {!! json_encode([
+            'csrfToken' => csrf_token()
+        ]) !!};
+    </script>
+
     <style>
         body {
             padding-bottom: 100px;
@@ -31,6 +38,8 @@
     @include('layouts.nav')
 
     @yield('content')
+
+    <flash message="{{ session('flash') }}"></flash>
 </div>
 
 <!-- Scripts -->
